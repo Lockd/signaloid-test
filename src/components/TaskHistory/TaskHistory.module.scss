@@ -1,0 +1,23 @@
+@import "../../styles/variables.scss";
+
+.taskHistory {
+  background-color: $white;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.taskHistoryTitle {
+  color: $contrast-text-color;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.taskHistoryContainer {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: auto;
+
+  @media screen and ($tablet) {
+    grid-template-columns: auto auto;
+  }
+}

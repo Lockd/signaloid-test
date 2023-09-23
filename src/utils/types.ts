@@ -17,3 +17,5 @@ export interface ITask {
   taskEndDate: number;
   id: string;
 }
+
+export type TTaskStatus = "completed" | "startup" | "ongoing";

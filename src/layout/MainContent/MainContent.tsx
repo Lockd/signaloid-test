@@ -1,6 +1,7 @@
 import React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import styles from "./MainContent.module.scss";
 
 interface IMainContentProps {
   children: React.ReactNode;
@@ -8,11 +9,11 @@ interface IMainContentProps {
 
 const MainContent: React.FC<IMainContentProps> = ({ children }) => {
   return (
-    <>
+    <div className={styles.appContainer}>
       <Header />
-      <div>{children}</div>
+      <main className={styles.mainContent}>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };
 

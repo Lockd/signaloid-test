@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import AddTask from "./AddTask";
-import TaskHistory from "./TaskHistory";
-import { ITask } from "../utils/types";
-import { TASK_HISTORY_STORAGE } from "../utils/constants";
+import AddTask from "../AddTask/AddTask";
+import TaskHistory from "../TaskHistory/TaskHistory";
+import { ITask } from "../../utils/types";
+import { TASK_HISTORY_STORAGE } from "../../utils/constants";
 
 const TaskManager = () => {
   const [history, setHistory] = useState<ITask[]>([]);

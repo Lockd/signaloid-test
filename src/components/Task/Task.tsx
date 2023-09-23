@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { ITask } from "../utils/types";
+import { ITask, TTaskStatus } from "../../utils/types";
 import { format } from "date-fns";
+import styles from "./Task.module.scss";
+import { BounceLoader } from "react-spinners";
 
 const Task: React.FC<ITask> = ({
   name,
@@ -9,8 +11,7 @@ const Task: React.FC<ITask> = ({
   startupEndDate,
   startDate,
 }) => {
-  const [status, setStatus] = useState("");
-  // TODO not sure about node js
+  const [status, setStatus] = useState<TTaskStatus>("completed");
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -51,15 +52,41 @@ const Task: React.FC<ITask> = ({
     return format(new Date(delta), "s 'seconds'");
   };
 
-  // TODO add indicator for status.
+  const getContainerClassName = () => {
+    let className = styles.taskContainer;
+
+    if (status === "completed") {
+      className += ` ${styles.taskContainerCompleted}`;
+    }
+
+    return className;
+  };
 
   return (
-    <div>
-      <div>{name}</div>
-      <div>Status: {status}</div>
-      <div>Selected Virtual Machine: {vmOption}</div>
-      <div>Start date: {format(new Date(startDate), "dd.MM.yyyy hh:mm")}</div>
-      <div>Duration: {getDeltaDate()}</div>
+    <div className={getContainerClassName()}>
+      {status !== "completed" && (
+        <div className={styles.taskSpinner}>
+          <BounceLoader size={600} color="#81f1f152" />
+        </div>
+      )}
+      <div>
+        <span className={styles.taskFieldLabel}>Task name:</span> {name}
+      </div>
+      <div>
+        <span className={styles.taskFieldLabel}>Status:</span> {status}
+      </div>
+      <div>
+        <span className={styles.taskFieldLabel}>Virtual Machine:</span>{" "}
+        {vmOption}
+      </div>
+      <div>
+        <span className={styles.taskFieldLabel}>Start date:</span>{" "}
+        {format(new Date(startDate), "dd.MM.yyyy hh:mm")}
+      </div>
+      <div>
+        <span className={styles.taskFieldLabel}>Duration:</span>{" "}
+        {getDeltaDate()}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,139 @@
+@import "../../styles/variables.scss";
+
+.addTaskContainer {
+  padding: 2rem;
+  background-color: $white;
+  border-radius: 1rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and ($tablet) {
+    height: 450px;
+    padding: 2rem;
+  }
+}
+
+.addTaskContent {
+  width: 100%;
+  max-width: 500px;
+
+  @media screen and ($tablet) {
+    width: 60%;
+    padding: 2rem;
+  }
+}
+
+.addTaskTitle {
+  color: $contrast-text-color;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.taskNameContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.taskNameLabel {
+  color: $contrast-text-color;
+  margin-bottom: 0.5rem;
+}
+.taskNameInput {
+  padding: 1rem;
+  border: unset;
+  border-radius: 0.5rem;
+  background-color: $light-green;
+  width: 100%;
+  height: 60px;
+  color: $contrast-text-color;
+  font-size: 1rem;
+
+  &:focus-visible,
+  &:hover {
+    background-color: $focused-green;
+    border: unset;
+    outline: unset;
+  }
+}
+
+.vmSelectionLabel {
+  color: $contrast-text-color;
+}
+
+.vmSelectionContainer {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vmOptionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 60px;
+  border-radius: 0.5rem;
+  background-color: $light-green;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background-color: $focused-green;
+  }
+}
+
+.vmOptionContainerActive {
+  background-color: $focused-green !important;
+}
+
+.vmOptionLabel {
+  cursor: pointer;
+  color: $contrast-text-color;
+}
+
+.vmOptionInput {
+  display: none;
+}
+
+.addTaskBtn {
+  width: 120px;
+  height: 60px;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  background-color: $light-green;
+  cursor: pointer;
+  color: $contrast-text-color;
+
+  &:disabled {
+    background-color: $light-gray !important;
+    color: $contrast-text-color !important;
+    cursor: unset;
+  }
+
+  &:hover {
+    background-color: $highlight-color;
+    color: unset;
+  }
+}
+
+.decorativeElementContainer {
+  border-radius: 1rem;
+  width: 40%;
+  overflow: hidden;
+  height: 100%;
+  display: none;
+
+  @media screen and ($tablet) {
+    display: block;
+  }
+}
+
+.decorativeElement {
+  width: 100%;
+  height: auto;
+}

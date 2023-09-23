@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.headerLogoContainer {
+  max-height: 100%;
+  width: 120px;
+  height: auto;
+  cursor: pointer;
+}
+
+.headerLogo {
+  display: block;
+  width: 100%;
+  height: auto;
+}

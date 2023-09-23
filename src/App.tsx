@@ -1,6 +1,6 @@
 import React from "react";
-import MainContent from "./layout/MainContent";
-import TaskManager from "./components/TaskManager";
+import MainContent from "./layout/MainContent/MainContent";
+import TaskManager from "./components/TaskManager/TaskManager";
 
 const App = () => {
   return (
