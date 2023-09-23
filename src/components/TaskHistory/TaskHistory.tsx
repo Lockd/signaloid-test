@@ -5,9 +5,13 @@ import styles from "./TaskHistory.module.scss";
 
 interface ITaskHistoryProps {
   history: ITask[];
+  onUpdateTask: (task: ITask) => void;
 }
 
-const TaskHistory: React.FC<ITaskHistoryProps> = ({ history }) => {
+const TaskHistory: React.FC<ITaskHistoryProps> = ({
+  history,
+  onUpdateTask,
+}) => {
   return (
     <div className={styles.taskHistory}>
       <h2 className={styles.taskHistoryTitle}>Task history</h2>
@@ -16,7 +20,7 @@ const TaskHistory: React.FC<ITaskHistoryProps> = ({ history }) => {
           <p>Your task history is empty, you can add your first task above!</p>
         )}
         {history.map((task) => (
-          <Task key={task.id} {...task} />
+          <Task key={task.id} task={task} onUpdateTask={onUpdateTask} />
         ))}
       </div>
     </div>

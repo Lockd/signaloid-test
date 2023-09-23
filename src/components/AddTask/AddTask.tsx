@@ -33,6 +33,7 @@ const AddTask: React.FC<IAddTaskProps> = ({ onAddTask }) => {
       startDate,
       startupEndDate,
       taskEndDate,
+      status: "startup",
     };
 
     onAddTask(task);

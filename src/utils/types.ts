@@ -9,6 +9,8 @@ export interface IVMOption {
   };
 }
 
+export type TTaskStatus = "completed" | "startup" | "ongoing";
+
 export interface ITask {
   name: string;
   vmOption: VMType;
@@ -16,6 +18,5 @@ export interface ITask {
   startupEndDate: number;
   taskEndDate: number;
   id: string;
+  status: TTaskStatus;
 }
-
-export type TTaskStatus = "completed" | "startup" | "ongoing";

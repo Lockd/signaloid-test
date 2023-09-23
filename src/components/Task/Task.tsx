@@ -1,19 +1,20 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { ITask, TTaskStatus } from "../../utils/types";
 import { format } from "date-fns";
 import styles from "./Task.module.scss";
 import { BounceLoader } from "react-spinners";
 import { capitalizeFirstLetter } from "../../utils/misc";
 
-const Task: React.FC<ITask> = ({
-  name,
-  vmOption,
-  taskEndDate,
-  startupEndDate,
-  startDate,
-}) => {
-  const [status, setStatus] = useState<TTaskStatus>("completed");
+interface ITaskProps {
+  task: ITask;
+  onUpdateTask: (task: ITask) => void;
+}
+
+const Task: React.FC<ITaskProps> = ({ task, onUpdateTask }) => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const { name, vmOption, taskEndDate, startupEndDate, startDate, status } =
+    task;
 
   useEffect(() => {
     checkStatus();
@@ -26,21 +27,29 @@ const Task: React.FC<ITask> = ({
   const checkStatus = () => {
     const currentTime = new Date().getTime();
     let timeToTriggerTimeout;
+    let newStatus: TTaskStatus = "startup";
 
     if (currentTime > taskEndDate) {
-      setStatus("completed");
+      newStatus = "completed";
     } else if (currentTime > startupEndDate) {
-      setStatus("ongoing");
+      newStatus = "ongoing";
       timeToTriggerTimeout = taskEndDate - currentTime;
     } else {
-      setStatus("startup");
+      newStatus = "startup";
       timeToTriggerTimeout = startupEndDate - currentTime;
+    }
+
+    if (status !== newStatus) {
+      onUpdateTask({
+        ...task,
+        status: newStatus,
+      });
     }
 
     if (!timeToTriggerTimeout) return;
     timeoutRef.current = setTimeout(() => {
       checkStatus();
-    }, currentTime - startupEndDate);
+    }, timeToTriggerTimeout);
   };
 
   const getDeltaDate = () => {

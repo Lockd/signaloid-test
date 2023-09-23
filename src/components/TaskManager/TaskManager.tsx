@@ -18,13 +18,28 @@ const TaskManager = () => {
   const onAddTask = (task: ITask) => {
     const newHistory = [task, ...history];
     setHistory(newHistory);
+    saveHistory(newHistory);
+  };
+
+  const onUpdateTask = (task: ITask) => {
+    const newHistory = [...history];
+    const taskIndex = newHistory.findIndex((el) => el.id === task.id);
+
+    if (taskIndex === -1) return;
+
+    newHistory[taskIndex] = task;
+    setHistory(newHistory);
+    saveHistory(newHistory);
+  };
+
+  const saveHistory = (newHistory: ITask[]) => {
     localStorage.setItem(TASK_HISTORY_STORAGE, JSON.stringify(newHistory));
   };
 
   return (
     <div>
       <AddTask onAddTask={onAddTask} />
-      <TaskHistory history={history} />
+      <TaskHistory history={history} onUpdateTask={onUpdateTask} />
     </div>
   );
 };
