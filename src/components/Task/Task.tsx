@@ -3,6 +3,7 @@ import { ITask, TTaskStatus } from "../../utils/types";
 import { format } from "date-fns";
 import styles from "./Task.module.scss";
 import { BounceLoader } from "react-spinners";
+import { capitalizeFirstLetter } from "../../utils/misc";
 
 const Task: React.FC<ITask> = ({
   name,
@@ -73,7 +74,8 @@ const Task: React.FC<ITask> = ({
         <span className={styles.taskFieldLabel}>Task name:</span> {name}
       </div>
       <div>
-        <span className={styles.taskFieldLabel}>Status:</span> {status}
+        <span className={styles.taskFieldLabel}>Status:</span>{" "}
+        {capitalizeFirstLetter(status)}
       </div>
       <div>
         <span className={styles.taskFieldLabel}>Virtual Machine:</span>{" "}

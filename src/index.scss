@@ -19,10 +19,14 @@ code {
 
 * {
   box-sizing: border-box;
-  color: $white;
+  color: $contrast-text-color;
   transition: 0.3s all ease-in-out;
-  font-size: 18px;
+  font-size: 1rem;
   font-family: "Clash Grotesk", sans-serif;
+
+  @media screen and ($tablet) {
+    font-size: 1.125rem;
+  }
 }
 
 a {

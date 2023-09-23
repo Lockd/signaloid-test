@@ -26,7 +26,6 @@
 }
 
 .addTaskTitle {
-  color: $contrast-text-color;
   margin-bottom: 2rem;
   font-size: 2rem;
 }
@@ -38,7 +37,6 @@
 }
 
 .taskNameLabel {
-  color: $contrast-text-color;
   margin-bottom: 0.5rem;
 }
 .taskNameInput {
@@ -48,7 +46,6 @@
   background-color: $light-green;
   width: 100%;
   height: 60px;
-  color: $contrast-text-color;
   font-size: 1rem;
 
   &:focus-visible,
@@ -59,22 +56,19 @@
   }
 }
 
-.vmSelectionLabel {
-  color: $contrast-text-color;
-}
-
 .vmSelectionContainer {
   margin: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .vmOptionContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
+  width: 100%;
   height: 60px;
   border-radius: 0.5rem;
   background-color: $light-green;
@@ -92,7 +86,6 @@
 
 .vmOptionLabel {
   cursor: pointer;
-  color: $contrast-text-color;
 }
 
 .vmOptionInput {
@@ -100,14 +93,13 @@
 }
 
 .addTaskBtn {
-  width: 120px;
+  width: 100%;
   height: 60px;
   border-radius: 0.5rem;
   outline: none;
   border: none;
   background-color: $light-green;
   cursor: pointer;
-  color: $contrast-text-color;
 
   &:disabled {
     background-color: $light-gray !important;
@@ -117,7 +109,7 @@
 
   &:hover {
     background-color: $highlight-color;
-    color: unset;
+    color: $white;
   }
 }
 

@@ -68,9 +68,7 @@ const AddTask: React.FC<IAddTaskProps> = ({ onAddTask }) => {
           />
         </div>
 
-        <p className={styles.vmSelectionLabel}>
-          Select an option for Virtual Machine:
-        </p>
+        <p>Select an option for Virtual Machine:</p>
         <div className={styles.vmSelectionContainer}>
           {VM_OPTIONS.map((vmOption) => (
             <div

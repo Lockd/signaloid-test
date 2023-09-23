@@ -12,6 +12,9 @@ const TaskHistory: React.FC<ITaskHistoryProps> = ({ history }) => {
     <div className={styles.taskHistory}>
       <h2 className={styles.taskHistoryTitle}>Task history</h2>
       <div className={styles.taskHistoryContainer}>
+        {!history.length && (
+          <p>Your task history is empty, you can add your first task above!</p>
+        )}
         {history.map((task) => (
           <Task key={task.id} {...task} />
         ))}
