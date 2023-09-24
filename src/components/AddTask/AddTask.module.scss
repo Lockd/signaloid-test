@@ -10,16 +10,15 @@
   align-items: center;
 
   @media screen and ($tablet) {
-    height: 450px;
     padding: 2rem;
   }
 }
 
 .addTaskContent {
   width: 100%;
-  max-width: 500px;
 
   @media screen and ($tablet) {
+    max-width: 500px;
     width: 60%;
     padding: 2rem;
   }
@@ -119,6 +118,7 @@
   overflow: hidden;
   height: 100%;
   display: none;
+  max-height: 450px;
 
   @media screen and ($tablet) {
     display: block;
